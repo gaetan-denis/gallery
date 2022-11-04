@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class TechnicalFixtures extends Fixture
 {
-    private array $technicals=['sérigraphie', 'lithographie','acrylique','huile sur toile', 'huile sur panneau', 'goache'];
+    private array $technicals=['Sérigraphie', 'Lithographie','Acrylique','Huile sur toile', 'Huile sur panneau', 'Gouache'];
     public function load(ObjectManager $manager): void
 
     {

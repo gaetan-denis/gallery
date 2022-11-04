@@ -13,7 +13,7 @@ use Faker;
 
 class PaintingFixtures extends Fixture implements DependentFixtureInterface
 {
-    private array $titles = ['Flowers', 'Souvenir d\'Océanie', 'L\'Annonciation', 'En été, la Bohémienne', 'Le thérapeute', 'Nuit étoilée', 'Le martyre de saint Barthélemy', 'Petit éclat de lueur rose bleue iridescente', 'La Belle Ferronnière
+    private array $titles = ['Flowers', 'Souvenir d\'Océanie', 'L\'Annonciation', 'En été, la Bohémienne', 'Le thérapeute', 'Nuit étoilée', 'Le martyre de saint Barthélemy', 'Petit éclat de lueur iridescente', 'La Belle Ferronnière
 ', 'Haven Painting', 'Girl fishing', 'La Jeune Fille à la perle'];
 
     public function load(ObjectManager $manager): void

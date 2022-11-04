@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DetailController!{% endblock %}
+{% block title %}Détails{% endblock %}
 
 {% block body %}
     <main class="container">
@@ -11,13 +11,20 @@
             <div class="col-md-4">
                 <img src="{{ asset('/img/paints/') ~ painting.image }}" alt="{{ painting.titre }}">
             </div>
-            <div class="col-md-8">
+            <div class="row--md-6 row-10">
 
                 <p>
-                    {{ painting.creation }}<br>
-                    {{ painting.category.name }}
+                    <h3>Caractéristiques</h3>
+                    Année de création: {{ painting.creation }}<br>
+                    Catégorie : {{ painting.category.name }}<br>
+                    Technique : {{ painting.technical.name }}<br>
+                    Hauteur : {{ painting.hauteur }} cm <br>
+                    Largeur: {{ painting.largeur }} cm <br>
                 </p>
-                <p>{{ painting.description }}</p>
+                <p>
+                    <h3>Description</h3>
+                    {{ painting.description }}
+                </p>
                 <p><a href="{{ path('home') }}" class="btn btn-dark">Retour à l'accueil</a></p>
             </div>
 

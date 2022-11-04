@@ -61,7 +61,7 @@ class AdminController extends AbstractController
     {
         $manager->remove($painting);
         $manager->flush();
-        $this->addFlash('success', 'Vous avez supprimé votre commentaire');
+        $this->addFlash('success', 'Suppression de votre commentaire effectuée');
         return $this->redirectToRoute('admin');
     }
 
@@ -87,7 +87,7 @@ class AdminController extends AbstractController
     {
         $comment->setIsPublished(!$comment->isIsPublished());
         $manager->flush();
-        $this->addFlash('success','l\'action a bien été entrepris');
+        $this->addFlash('success','l\'action a bien été entreprise');
         return $this->redirectToRoute('comment');
     }
 }
