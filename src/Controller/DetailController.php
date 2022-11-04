@@ -18,8 +18,6 @@ class DetailController extends AbstractController
             ['created_at' => 'DESC']
         );
 
-        dump($comments);
-
         return $this->render('pages/detail.html.twig', [
             'painting'=> $painting,
             'comments' => $comments
