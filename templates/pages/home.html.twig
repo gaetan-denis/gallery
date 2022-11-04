@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{{ parent() }}{% endblock %}
+
+{% block body %}
+    {% include 'partials/slider.html.twig' %}
+    <main class="container">
+        <section class="home-paintings">
+            <h2 class="my-5 text-black-50">Nos œuvres d'arts</h2>
+            <div class="row">
+                {% for painting in paintings %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img alt="" src="{{ asset('img/paints/'~painting.image) }}" style="height: 400px; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">{{ painting.titre }}</h5>
+                            <p>{{ painting.creation }}</p>
+                            <p class="card-text">{{painting.category.name}}</p>
+                            <p class="card-text">{{painting.technical.name}}</p>
+                            <a href="{{path('detail', {slug:painting.slug}) }}" class="btn btn-secondary btn-sm">En savoir plus...</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

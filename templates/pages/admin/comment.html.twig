@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% if app.flashes('success') %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+    <main class="container">
+        <section id="comments">
+            <h2 class="display-4 my-4"><a href="{{ path('comment') }}">Commentaire</a> </h2>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Commentaire</th>
+                        <th>Création</th>
+                        <th><i class="icofont-eye"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for comment in comments %}
+                        <tr>
+                            <td><a href="{{ path('detail', {slug:comment.painting.slug}) }}">{{ comment.painting.titre|capitalize }}</a>
+                            </td>
+                            <td>{{ comment.name }}</td>
+                            <td>{{ comment.comment }}</td>
+                            <td>{{ comment.createdAt|date('d/m/Y') }}</td>
+                            <td><a href="{{ path('view', {id:comment.id}) }}">
+                                    {% if comment.isPublished %}
+                                        <i class="icofont-eye text-success"></i>
+                                    {% else %}
+                                        <i class="icofont-eye text-danger"></i>
+                                    {% endif %}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {# display navigation #}
+                <div class="navigation">
+                    {{ knp_pagination_render(comments) }}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

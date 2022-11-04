@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailController!{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-md-12">
+                <h2>{{painting.titre}}</h2>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('/img/paints/') ~ painting.image }}" alt="{{ painting.titre }}">
+            </div>
+            <div class="col-md-8">
+
+                <p>
+                    {{ painting.creation }}<br>
+                    {{ painting.category.name }}
+                </p>
+                <p>{{ painting.description }}</p>
+                <p><a href="{{ path('home') }}" class="btn btn-dark">Retour à l'accueil</a></p>
+            </div>
+
+            <div class="mt-5">
+                <h3>Commentaire</h3>
+                    {% for comment in comments %}
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h4>Pseudo: {{ comment.name }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>{{ comment.comment }}</p>
+                                    <footer class="blockquote-footer text-start">Ajouté le {{ comment.createdAt|date('d/m/Y') }} à {{ comment.createdAt|date('H:m:i') }}</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

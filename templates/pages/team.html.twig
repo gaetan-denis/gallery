@@ -1,0 +1,55 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Hello GaleryController!{% endblock %}
+
+{% block body %}
+    {% include 'partials/slider.html.twig' %}
+    <main class="container">
+        <section class="home-team">
+            <h2 class="my-5 text-black-50">Notre Équipe</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img alt="" src="{{ asset('img/avatars/ava01.jpg') }}" style="height: 400px; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Jane Doe</h5>
+                            <p>Lorem ipsum.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,
+                                nulla quis? Adipisci dignissimos doloribus ducimus eveniet, fugiat illo laborum quam
+                                suscipit tempora vel. Aspernatur corporis explicabo facilis illum laboriosam
+                                perferendis?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img alt="" src="{{ asset('img/avatars/ava02.jpg') }}" style="height: 400px; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Jack Doe</h5>
+                            <p>Lorem ipsum.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,
+                                nulla quis? Adipisci dignissimos doloribus ducimus eveniet, fugiat illo laborum quam
+                                suscipit tempora vel. Aspernatur corporis explicabo facilis illum laboriosam
+                                perferendis?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img alt="" src="{{ asset('img/avatars/ava03.jpg') }}" style="height: 400px; width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">John Doe</h5>
+                            <p>Lorem ipsum.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem,
+                                nulla quis? Adipisci dignissimos doloribus ducimus eveniet, fugiat illo laborum quam
+                                suscipit tempora vel. Aspernatur corporis explicabo facilis illum laboriosam
+                                perferendis?</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+{% endblock %}

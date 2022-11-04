@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <main class="container">
+        <section id="paintings">
+            <h2 class="display-4 my-4"><a href="{{ path('comment') }}">Commentaire</a> </h2>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Titre</th>
+                        <th>Année</th>
+                        <th>Description</th>
+                        <th>Catégorie</th>
+                        <th>Technique</th>
+                        <th>Hauteur</th>
+                        <th>Largeur</th>
+                        <th><i class="icofont-ui-delete"></i></th>
+                        <th><i class="icofont-ui-edit"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for painting in paintings %}
+                        <tr>
+                            <td><img src="{{ asset('img/paints/' ~ painting.image) }}" alt=""
+                                     class="painting-image img-fluid"></td>
+                            <td><a href="{{ path('detail', {slug:painting.slug}) }}">{{ painting.titre|capitalize }}</a>
+                            </td>
+                            <td>{{ painting.creation }}</td>
+                            <td>{{ painting.description }}</td>
+                            <td>{{ painting.category.name }}</td>
+                            <td>{{ painting.technical.name }}</td>
+                            <td>{{ painting.hauteur }}</td>
+                            <td>{{ painting.largeur }}</td>
+                            <td><a href="{{ path('delete', {id:painting.id}) }}"><i
+                                            class="icofont-ui-delete text-danger"></i></a></td>
+                           <td><a href="{{ path('edit', {id:painting.id}) }}"><i class="icofont-ui-edit"></i></a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {# display navigation #}
+                <div class="navigation">
+                    {{ knp_pagination_render(paintings) }}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
