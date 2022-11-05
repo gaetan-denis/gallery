@@ -23,15 +23,15 @@ class Painting
     #[Assert\Length(
         min: 5,
         max: 255,
-        minMessage: 'Votre titre doit contenir au moins {{limit}} caractères',
-        maxMessage: 'Votre titre ne peut pas dépasser {{limit}} caractères',
+        minMessage: 'Votre titre doit contenir au moins {{ limit }} caractères',
+        maxMessage: 'Votre titre ne peut pas dépasser {{ limit }} caractères',
     )]
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\Length(
         min:10,
-        minMessage: 'Votre description doit contenir au moins {{limit}} caractères',
+        minMessage: 'Votre description doit contenir au moins {{ limit }} caractères',
     )]
     private ?string $description = null;
 
@@ -41,7 +41,7 @@ class Painting
     #[ORM\Column]
     #[Assert\Length(
         min:1,
-        minMessage: 'Votre hauteur doit être au moins d\' {{limit}} caractères',
+        minMessage: 'Votre hauteur doit être au moins d\' {{ limit }} caractères',
     )]
     private ?float $hauteur = null;
 
@@ -50,7 +50,7 @@ class Painting
     private ?float $largeur = null;
     #[Assert\Length(
         min:1,
-        minMessage: 'Votre largeur doit être au moins de {{limit}} caractères',
+        minMessage: 'Votre largeur doit être au moins de {{ limit }} caractères',
     )]
     #[ORM\Column(length: 255)]
     private ?string $image = null;
