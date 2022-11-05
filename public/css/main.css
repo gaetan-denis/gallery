@@ -1,5 +1,10 @@
 /* CSS */
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 body {
     font-size: 90%;
     color: #141414;

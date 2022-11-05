@@ -50,7 +50,7 @@ class Painting
     private ?float $largeur = null;
     #[Assert\Length(
         min:1,
-        minMessage: 'Votre largeur doit être au moins d\' {{limit}} caractères',
+        minMessage: 'Votre largeur doit être au moins de {{limit}} caractères',
     )]
     #[ORM\Column(length: 255)]
     private ?string $image = null;

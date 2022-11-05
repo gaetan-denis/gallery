@@ -27,18 +27,26 @@
                 </p>
                 <p><a href="{{ path('home') }}" class="btn btn-dark">Retour à l'accueil</a></p>
             </div>
+            <div class="mt-5">
+                <h2>Votre Commentaire</h2>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-dark">Ajoutez un commentaire</button>
+                {{ form_end(form) }}
+            </div>
+
 
             <div class="mt-5">
-                <h3>Commentaire</h3>
+                <h3>Commentaires :</h3>
                     {% for comment in comments %}
-                        <div class="card mt-4">
-                            <div class="card-header">
-                                <h4>Pseudo: {{ comment.name }}</h4>
+                        <div class="card mt-4 border">
+                            <div>
+                                <h4>Nom d'utilisateur {{ comment.name }}</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-img-top">
                                 <blockquote class="blockquote mb-0">
                                     <p>{{ comment.comment }}</p>
-                                    <footer class="blockquote-footer text-start">Ajouté le {{ comment.createdAt|date('d/m/Y') }} à {{ comment.createdAt|date('H:m:i') }}</footer>
+                                    <footer class="blockquote-footer text-start">Le {{ comment.createdAt|date('d/m/Y') }} </footer>
                                 </blockquote>
                             </div>
                         </div>
